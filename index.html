@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mona ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    background:#090714;
+    color:white;
+    font-family:Poppins,sans-serif;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#8d174d;
+    filter:blur(150px);
+    opacity:.22;
+    top:-200px;
+    left:-150px;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#522c91;
+    filter:blur(160px);
+    opacity:.18;
+    bottom:-250px;
+    right:-150px;
+}
+
+#stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.15}
+    to{opacity:.9}
+}
+
+/* ---------- SCREEN ---------- */
+
+.screen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.card{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:650px;
+    min-height:560px;
+    padding:60px 35px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:35px;
+
+    backdrop-filter:blur(22px);
+    box-shadow:0 30px 100px rgba(0,0,0,.55);
+}
+
+.chapter{
+    display:none;
+    width:100%;
+    animation:chapterIn .8s ease;
+}
+
+.chapter.active{
+    display:block;
+}
+
+@keyframes chapterIn{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ---------- TEXT ---------- */
+
+.number{
+    color:#e89ab8;
+    font-size:12px;
+    letter-spacing:5px;
+    margin-bottom:25px;
+}
+
+h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:60px;
+    line-height:1;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+h1 span{
+    color:#ff9ec4;
+}
+
+p{
+    max-width:500px;
+    margin:0 auto 35px;
+    color:#d8d3da;
+    font-size:16px;
+    line-height:1.9;
+}
+
+.quote{
+    font-family:"Cormorant Garamond",serif;
+    font-size:27px;
+    color:#ffd5e4;
+    line-height:1.5;
+}
+
+/* ---------- BUTTON ---------- */
+
+.btn{
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.07);
+    color:white;
+    padding:14px 34px;
+    border-radius:50px;
+    cursor:pointer;
+    font-family:Poppins;
+    font-size:14px;
+    transition:.35s;
+}
+
+.btn:hover{
+    background:#d83f78;
+    border-color:#d83f78;
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(216,63,120,.3);
+}
+
+/* ---------- HEART ---------- */
+
+.heart{
+    font-size:65px;
+    margin-bottom:25px;
+    animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.13)}
+}
+
+/* ---------- TYPEWRITER ---------- */
+
+.type{
+    min-height:60px;
+}
+
+/* ---------- FINAL ---------- */
+
+.final h1{
+    font-size:62px;
+}
+
+.question{
+    color:#ffb2d0;
+    font-family:"Cormorant Garamond",serif;
+    font-size:32px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.yes{
+    background:#d83f78;
+    border-color:#d83f78;
+    padding:15px 40px;
+}
+
+.yes:hover{
+    background:#ef548d;
+    transform:scale(1.08);
+}
+
+.notyet{
+    background:rgba(255,255,255,.05);
+}
+
+/* ---------- SUCCESS ---------- */
+
+#success{
+    display:none;
+    animation:success .9s ease;
+}
+
+@keyframes success{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.successHeart{
+    font-size:110px;
+    animation:heartbeat .8s infinite;
+}
+
+.successTitle{
+    font-family:"Cormorant Garamond",serif;
+    font-size:65px;
+    color:#ff9ec4;
+}
+
+.small{
+    color:#cfc7d0;
+}
+
+/* ---------- PROGRESS ---------- */
+
+.progress{
+    position:absolute;
+    top:25px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:11px;
+    letter-spacing:3px;
+    color:#9e8f9c;
+}
+
+/* ---------- FLOATING HEARTS ---------- */
+
+.float{
+    position:fixed;
+    bottom:-50px;
+    pointer-events:none;
+    z-index:10;
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px){
+
+    .card{
+        min-height:540px;
+        padding:55px 22px 30px;
+    }
+
+    h1,
+    .final h1{
+        font-size:45px;
+    }
+
+    .quote{
+        font-size:23px;
+    }
+
+    p{
+        font-size:14px;
+    }
+
+    .question{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<div class="screen">
+
+<div class="card">
+
+<div class="progress" id="progress">
+CHAPTER 01 / 04
+</div>
+
+
+<!-- ================= CHAPTER 1 ================= -->
+
+<section class="chapter active" id="c1">
+
+<div class="heart">🌙</div>
+
+<div class="number">CHAPTER ONE</div>
+
+<h1>
+Hey, <span>Mona</span>...
+</h1>
+
+<p class="type" id="typing"></p>
+
+<button class="btn" onclick="next(2)">
+    I'm listening ✨
+</button>
+
+</section>
+
+
+<!-- ================= CHAPTER 2 ================= -->
+
+<section class="chapter" id="c2">
+
+<div class="heart">✨</div>
+
+<div class="number">CHAPTER TWO</div>
+
+<h1>
+A little <span>truth</span>
+</h1>
+
+<p class="quote">
+"Some people don't enter your life
+with a big announcement...
+<br>
+they simply become important
+before you even realize it."
+</p>
+
+<p>
+And somehow, Mona,
+you became one of those people. ❤️
+</p>
+
+<button class="btn" onclick="next(3)">
+    Keep going 💌
+</button>
+
+</section>
+
+
+<!-- ================= CHAPTER 3 ================= -->
+
+<section class="chapter" id="c3">
+
+<div class="heart">💌</div>
+
+<div class="number">CHAPTER THREE</div>
+
+<h1>
+Almost a <span>secret...</span>
+</h1>
+
+<p>
+I've tried to find the perfect words,
+but maybe there aren't any.
+
+<br><br>
+
+So I'll just say what's real...
+
+<br><br>
+
+<span style="color:#ffb0ce">
+Talking to you makes my day better.
+Thinking about you makes me smile.
+And having you around feels special.
+</span>
+</p>
+
+<button class="btn" onclick="next(4)">
+    One last thing... ❤️
+</button>
+
+</section>
+
+
+<!-- ================= CHAPTER 4 ================= -->
+
+<section class="chapter final" id="c4">
+
+<div class="heart">❤️</div>
+
+<div class="number">CHAPTER FOUR</div>
+
+<h1>
+Mona, <span>this is it.</span>
+</h1>
+
+<div class="question">
+Will you be my special person?
+</div>
+
+<p>
+No pressure. No perfect answer needed.
+<br>
+Just one honest little moment. 🌸
+</p>
+
+<div class="buttons">
+
+<button class="btn yes" onclick="yes()">
+    YES ❤️
+</button>
+
+<button class="btn notyet" onclick="notYet()">
+    Not yet 🌙
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SUCCESS ================= -->
+
+<div id="success">
+
+<div class="successHeart">
+💖
+</div>
+
+<div class="successTitle">
+Mona said YES!
+</div>
+
+<p class="small">
+Maybe this is just a website...
+<br>
+but this moment can be the beginning
+of something beautiful. ✨
+</p>
+
+<h2 style="color:#ffb2d0;margin-top:20px;">
+Our story starts here. ❤️
+</h2>
+
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+
+/* ---------- STARS ---------- */
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+    let s=document.createElement("div");
+
+    s.className="star";
+
+    s.style.left=Math.random()*100+"%";
+    s.style.top=Math.random()*100+"%";
+
+    s.style.animationDelay=
+        Math.random()*2+"s";
+
+    stars.appendChild(s);
+}
+
+
+/* ---------- TYPEWRITER ---------- */
+
+const text =
+"Mona, before you continue... just know that this little website was made for one person. You.";
+
+let i=0;
+
+function typeWriter(){
+
+    if(i<text.length){
+
+        document.getElementById("typing")
+        .innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter,35);
+    }
+}
+
+typeWriter();
+
+
+/* ---------- NEXT CHAPTER ---------- */
+
+function next(number){
+
+    document.querySelectorAll(".chapter")
+    .forEach(x=>x.classList.remove("active"));
+
+    document.getElementById("c"+number)
+    .classList.add("active");
+
+    document.getElementById("progress")
+    .innerText=
+        "CHAPTER 0"+number+" / 04";
+
+    createHearts(5);
+}
+
+
+/* ---------- NOT YET ---------- */
+
+function notYet(){
+
+    const messages=[
+        "That's okay, Mona 🌙",
+        "Take your time. Some answers deserve a little thought. ✨",
+        "No worries ❤️",
+        "I'll leave the question here for you. 🌸"
+    ];
+
+    alert(
+        messages[Math.floor(Math.random()*messages.length)]
+    );
+}
+
+
+/* ---------- YES ---------- */
+
+function yes(){
+
+    document.querySelectorAll(".chapter")
+    .forEach(x=>x.style.display="none");
+
+    document.getElementById("progress")
+    .style.display="none";
+
+    document.getElementById("success")
+    .style.display="block";
+
+    createHearts(100);
+
+    celebration();
+}
+
+
+/* ---------- HEARTS ---------- */
+
+function createHearts(amount){
+
+    const emojis=[
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "✨",
+        "🌸"
+    ];
+
+    for(let i=0;i<amount;i++){
+
+        let h=document.createElement("div");
+
+        h.className="float";
+
+        h.innerText=
+            emojis[Math.floor(Math.random()*emojis.length)];
+
+        h.style.left=
+            Math.random()*100+"vw";
+
+        h.style.fontSize=
+            (15+Math.random()*30)+"px";
+
+        h.style.animationDuration=
+            (3+Math.random()*5)+"s";
+
+        document.body.appendChild(h);
+
+        setTimeout(()=>{
+            h.remove();
+        },8000);
+    }
+}
+
+
+/* ---------- EXTRA CELEBRATION ---------- */
+
+function celebration(){
+
+    for(let i=0;i<50;i++){
+
+        let x=document.createElement("div");
+
+        x.innerText="✦";
+
+        x.style.position="fixed";
+        x.style.left=Math.random()*100+"vw";
+        x.style.top=Math.random()*100+"vh";
+        x.style.color="#ff9ec4";
+        x.style.fontSize=
+            (10+Math.random()*20)+"px";
+        x.style.zIndex="20";
+
+        document.body.appendChild(x);
+
+        x.animate(
+            [
+                {
+                    transform:"scale(0)",
+                    opacity:0
+                },
+                {
+                    transform:"scale(1.5)",
+                    opacity:1
+                },
+                {
+                    transform:"scale(0)",
+                    opacity:0
+                }
+            ],
+            {
+                duration:1500+Math.random()*2000
+            }
+        );
+
+        setTimeout(()=>x.remove(),4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
